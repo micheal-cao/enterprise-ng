@@ -10,6 +10,15 @@ type SohoListViewSelectable = false | 'single' | 'multiple' | 'mixed';
 /** How individual items are referenced in the list view. */
 type SohoListViewItemReference = JQuery | number | void;
 
+/** Settings passed to the abstracted list filter component. */
+interface SohoListViewFilterSettings {
+  caseSensitive?: false;
+
+  filterMode?: void | 'startswith' | 'contains' | 'keyword';
+
+  searchableTextCallback?: Function;
+}
+
 interface SohoListViewOptions {
   /** Data to display. */
   dataset?: Object[];
@@ -47,6 +56,9 @@ interface SohoListViewOptions {
 
   /** If true when an item is activated the user should not be able to deactivate it by clicking on the activated item. */
   disableItemDeactivation?: boolean;
+
+  /** The settings for filtering the list **/
+  listFilterSettings?: SohoListViewFilterSettings;
 }
 
 type SohoListViewSourceFunction = (

@@ -41,6 +41,12 @@ export class ListViewDemoComponent implements OnInit {
   ];
   public descCounter = 0;
   public contentTypes: ContentType[];
+  public searchSettings: Object = {
+    filterMode: 'contains',
+    searchableTextCallback: (item: any) => {
+      return item.desc;
+    }
+  };
 
   constructor(private _contentService: ContentTypeService) {
     this._contentService.getContentTypes()

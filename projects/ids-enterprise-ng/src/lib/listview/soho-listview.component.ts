@@ -253,6 +253,17 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     return this.options.disableItemDeactivation;
   }
 
+  @Input() set listFilterSettings(value: object) {
+    this.options.listFilterSettings = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.listFilterSettings = value;
+      this.updateRequired = true;
+    }
+  }
+  get listFilterSettings() {
+    return this.options.listFilterSettings;
+  }
+
   /**
    * Set the list of selected items either by their indices or via the
    * jQuery selector for the li element.
