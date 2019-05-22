@@ -9,6 +9,7 @@ import {
   ToolbarSearchField
 } from './header-dynamic-demo.model';
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
+import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 import { SohoToolbarComponent } from 'ids-enterprise-ng';
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
@@ -22,6 +23,7 @@ export class SohoHeaderDynamicDemoComponent {
   @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; }
   @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; }
 
+  @ViewChild(SohoToolbarFlexComponent) sohoToolbarFlexComponent: SohoToolbarFlexComponent;
   @ViewChild(SohoToolbarComponent) sohoToolbarComponent: SohoToolbarComponent;
   @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
 
@@ -29,6 +31,11 @@ export class SohoHeaderDynamicDemoComponent {
    * The current screen title
    */
   @Input() sectionTitle: string;
+
+  /**
+   * Allows for the switch between Flex Toolbar and standard Toolbar
+   */
+  @Input() useFlexToolbar: boolean;
 
   /**
    * Sets the header toolbar using TabOptions
@@ -51,7 +58,17 @@ export class SohoHeaderDynamicDemoComponent {
       if (this.sohoToolbarComponent) {
         this.sohoToolbarComponent.updated();
       }
+      if (this.sohoToolbarFlexComponent) {
+        this.sohoToolbarFlexComponent.updated();
+      }
     });
+  }
+
+  /**
+   * Get a reference to the IDS ToolbarFlex or Toolbar component.
+   */
+  get toolbar(): SohoToolbarComponent|SohoToolbarFlexComponent {
+    return this.sohoToolbarFlexComponent || this.sohoToolbarComponent;
   }
 
   get toolbarSearchField(): ToolbarSearchField {

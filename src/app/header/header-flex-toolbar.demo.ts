@@ -9,14 +9,13 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 
 @Component({
   selector: 'app-toolbar-header-demo',
-  templateUrl: './header-toolbar.demo.html'
+  templateUrl: './header-flex-toolbar.demo.html'
 })
-export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
+export class HeaderFlexToolbarDemoComponent implements AfterViewInit, OnDestroy {
 
   public lastToolbarEvent: any;
   public buttonClickedSubscription: Subscription;
   public isShowingHeaderToolbar = true;
-  public isShowingHeaderTabs = false;
 
   private toolbarOptions: HeaderDynamicToolbarOptions = {
     toolbarButtons: [
@@ -38,6 +37,7 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) { }
 
   ngAfterViewInit() {
+    this.sohoHeaderRef.instance.useFlexToolbar = true;
     this.showHeaderToolbar();
   }
 
@@ -63,14 +63,8 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
     if (!this.sohoHeaderRef.instance.hasHeaderToolbar) {
       this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar Demo';
       this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions;
-
-      if (this.sohoHeaderRef.instance.useFlexToolbar) {
-        this.buttonClickedSubscription = this.sohoHeaderRef.instance.sohoToolbarFlexComponent.selected.subscribe(event =>
-          this.onToolbarButtonClicked(event));
-      } else {
-        this.buttonClickedSubscription = this.sohoHeaderRef.instance.sohoToolbarComponent.selected.subscribe(event =>
-          this.onToolbarButtonClicked(event));
-      }
+      this.buttonClickedSubscription = this.sohoHeaderRef.instance.toolbar.selected.subscribe(event =>
+        this.onToolbarButtonClicked(event));
     }
   }
 

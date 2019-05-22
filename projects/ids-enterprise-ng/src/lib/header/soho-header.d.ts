@@ -6,10 +6,30 @@
  */
 
 /**
+ * Header Options
+ */
+interface SohoHeaderOptions {
+  /**
+   * Passes in settings that will be applied to the underlying Toolbar component
+   */
+  toolbarSettings?: SohoToolbarOptions|SohoToolbarFlexOptions;
+
+  /**
+   * Determines whether a standard or Flex toolbar will be used inside the Header.
+   * If true, will use a Flex Toolbar.
+   * If false, will use a Standard Toolbar.
+   */
+  useFlexToolbar?: boolean;
+}
+
+/**
  * This interface represents the public API exposed by the
  * editor.
  */
 interface SohoHeaderStatic {
+  /** Control options. */
+  settings: SohoHeaderOptions;
+
   /**
    * Removes go back button
    * Resets header button back to the hamburger button
@@ -42,6 +62,11 @@ interface SohoHeaderStatic {
   close(): void;
 
   /**
+   * Updates the component
+   */
+  updated(settings?: SohoHeaderOptions): void;
+
+  /**
    * Destroys any resources created by this control.
    */
   destroy(): void;
@@ -55,7 +80,7 @@ interface JQueryStatic {
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
-  header(): JQuery;
+  header(options?: SohoHeaderOptions): JQuery;
 }
 
 /**
