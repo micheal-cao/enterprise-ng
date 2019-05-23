@@ -57,6 +57,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   private _isToggle = false;
   private _isTogglePressed = false;
   private _isPressed = false;
+  private _iconColor: string;
 
   /** The type of the button, defaulting to 'secondary'. */
   @Input('soho-button') set sohoButton(type: SohoButtonType) {
@@ -92,6 +93,32 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     }
   }
 
+  /**
+   * Used to set the colour option on soho-icon being used  by this
+   * soho-button.  Can be set to a named colour, for example `emerald06`
+   * or `azure10` to change the icon's color.
+   *
+   * @param iconColor the name of the color.
+   */
+  @Input() set iconColor(color: string) {
+    this._iconColor = color;
+  }
+
+  get iconColor(): string {
+    // Suffix with '-color', this code should also handle hex rgb values.
+    return this._iconColor ? this._iconColor : undefined;
+  }
+
+  /**
+   * @deprecated use [iconColour]='emerald06' input instead.
+   */
+  @Input() set extraIconClass(color: string) {
+    // Convert the extraIconClass.
+    const colorName = color.endsWith('-color') ? color.substring(0, color.length - 6) : color;
+    console.warn(`'extraIconClass' is deprecated, use [iconColor]='${colorName}' input instead.`);
+    this._iconColor = colorName;
+  }
+
   @Input() set replaceText(replaceText: boolean) {
     this._buttonOptions.replaceText = replaceText;
     if (this.jQueryElement) {
@@ -107,12 +134,6 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       // todo: how to update the button when hideMenuArrow changes?
     }
   }
-
-  /**
-   * Used to set an extra class on the soho-icon being used by soho-button.
-   * Useful to set emerald06-color azure10-color to change the icon color.
-   */
-  @Input() extraIconClass: string;
 
   get hideMenuArrow() {
     return this._buttonOptions.hideMenuArrow;
@@ -236,7 +257,6 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   @HostBinding('class.expandable-expander') get isExpandableExpander() {
     return this.expandableExpander;
   }
-
   /**
    * @deprecated no longer needed once this.toggle is removed.
    */

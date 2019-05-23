@@ -116,4 +116,16 @@ describe('Soho Button Unit Tests', () => {
     // expect(spy).toHaveBeenCalledTimes(0);
   });
 
+  it('check iconColor sets value', () => {
+    button.iconColor = 'lemmonchiffon';
+
+    expect(button.iconColor).toEqual('lemmonchiffon');
+  });
+
+  it('check extraIconClass sets icon color', () => {
+    button.extraIconClass = 'red-color'; // tslint:disable-line: deprecation
+
+    expect(button.iconColor).toEqual('red');
+  });
+
 });
