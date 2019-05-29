@@ -58,6 +58,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   private _isTogglePressed = false;
   private _isPressed = false;
   private _iconColor: string;
+  private _iconStyle: string;
 
   /** The type of the button, defaulting to 'secondary'. */
   @Input('soho-button') set sohoButton(type: SohoButtonType) {
@@ -100,13 +101,20 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    *
    * @param iconColor the name of the color.
    */
-  @Input() set iconColor(color: string) {
-    this._iconColor = color;
+  @Input() set iconColor(iconColor: string) {
+    this._iconColor = iconColor;
   }
 
   get iconColor(): string {
-    // Suffix with '-color', this code should also handle hex rgb values.
     return this._iconColor ? this._iconColor : undefined;
+  }
+
+  @Input() set iconStyle(iconStyle: string) {
+    this._iconStyle = iconStyle;
+  }
+
+  getIconStyle(): string {
+    return this._iconStyle;
   }
 
   /**

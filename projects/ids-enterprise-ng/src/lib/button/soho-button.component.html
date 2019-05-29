@@ -1,5 +1,6 @@
-<svg soho-icon *ngIf="hasIcon" [icon]="currentIcon" [ngClass]="iconColor + '-color'"></svg>
+<svg soho-icon *ngIf="hasIcon" [icon]="currentIcon" [ngClass]="iconColor ? iconColor + '-color' : undefined" [ngStyle]="getIconStyle() ? getIconStyle() : undefined"></svg>
 <span>
   <ng-content></ng-content>
 </span>
+<p>{{iconStyle}}</p>
 <ng-content select="div.disabled-tooltip"></ng-content>
