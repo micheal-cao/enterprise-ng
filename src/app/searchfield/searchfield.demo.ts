@@ -34,19 +34,26 @@ export class SearchFieldDemoComponent implements OnInit {
     delay: 500,
     source: (query, done) => {
       this.objectBasedData().subscribe((items) => {
-          done(query, items);
+        done(query, items);
       });
     }
   };
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
+
+  // tslint:disable-next-line: member-ordering
+  private static i = 0;
 
   /**
    * Change event we link to in this example.
    */
   onChange(event: SohoSearchFieldEvent) {
-    console.log('Search Changed' + event.type);
+    // console.log('Search Changed ' + event.data);
+  }
+
+  onSelected(event: SohoSearchFieldEvent) {
+    console.log(`[${++SearchFieldDemoComponent.i}] Search Selected ${this.model.searchValue}` + event.data);
   }
 
   /**
@@ -54,13 +61,13 @@ export class SearchFieldDemoComponent implements OnInit {
    */
   objectBasedData(): Observable<Array<object>> {
     return of([
-      {value: '1', label: 'Baby'},
-      {value: '2', label: 'Shoes'},
-      {value: '3', label: 'Mens'},
-      {value: '4', label: 'Womens'},
-      {value: '5', label: 'Bath'},
-      {value: '6', label: 'Home'},
-      {value: '7', label: 'Outdoors'}
+      { value: '1', label: 'Baby' },
+      { value: '2', label: 'Shoes' },
+      { value: '3', label: 'Mens' },
+      { value: '4', label: 'Womens' },
+      { value: '5', label: 'Bath' },
+      { value: '6', label: 'Home' },
+      { value: '7', label: 'Outdoors' }
     ]);
   }
 
@@ -69,7 +76,7 @@ export class SearchFieldDemoComponent implements OnInit {
    */
   arrayBasedData(): Observable<Array<string>> {
     return of([
-        'Baby', 'Shoes', 'Mens', 'Womens', 'Bath', 'Home', 'Outdoors'
+      'Baby', 'Shoes', 'Mens', 'Womens', 'Bath', 'Home', 'Outdoors'
     ]);
   }
 }
