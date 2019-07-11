@@ -1,7 +1,5 @@
 import {
-  AfterViewInit,
   Directive,
-  ElementRef,
   HostBinding,
   Input
 } from '@angular/core';
@@ -9,7 +7,7 @@ import {
 @Directive({
   selector: 'label[soho-label]' // tslint:disable-line
 })
-export class SohoLabelDirective implements AfterViewInit {
+export class SohoLabelDirective {
   /**
    * Indicate that the label is audible
    */
@@ -51,19 +49,5 @@ export class SohoLabelDirective implements AfterViewInit {
 
   @HostBinding('class.required') get isRequired() {
     return this.required ? true : false;
-  }
-
-  /**
-   * Local variables
-   */
-  private jQueryElement: JQuery;
-
-  constructor(private element: ElementRef) {
-  }
-
-  ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-
-    // no control initializer for label
   }
 }

@@ -8,7 +8,7 @@ import {
   Input,
   OnDestroy,
   Output,
-  OnChanges
+  OnChanges, NgZone
 } from '@angular/core';
 
 @Directive({
@@ -146,28 +146,31 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   // Reference to the SoHoXi control api.
   private tooltip: SohoTooltipStatic;
 
-  constructor(private element: ElementRef) {
-
-  }
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone
+  ) {}
 
   ngAfterViewInit() {
-    // Wrap the element in a jQuery selector.
-    this.jQueryElement = jQuery(this.element.nativeElement);
-
     this.createControl();
   }
 
   private createControl() {
-    // Initialise the SohoXi Control
-    this.jQueryElement.tooltip(this.options);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap the element in a jQuery selector.
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.tooltip = this.jQueryElement.data('tooltip');
+      // Initialise the SohoXi Control
+      this.jQueryElement.tooltip(this.options);
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('change', (event: SohoTooltipEvent) => this.changeEvent.emit(event));
-    this.jQueryElement.on('updated', (event: SohoTooltipEvent) => this.updateEvent.emit(event));
+      this.tooltip = this.jQueryElement.data('tooltip');
+
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('change', (event: SohoTooltipEvent) => this.ngZone.run(() => this.changeEvent.emit(event)));
+      this.jQueryElement.on('updated', (event: SohoTooltipEvent) => this.ngZone.run(() => this.updateEvent.emit(event)));
+    });
   }
 
   // -------------------------------------------
@@ -178,32 +181,46 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
    * Shows the tooltip.
    */
   public show(): void {
-    if (this.tooltip) {
-      this.tooltip.show();
+    if (!this.tooltip) {
+      return;
     }
+
+    this.ngZone.runOutsideAngular(() => this.tooltip.show());
   }
 
   /**
    * Hides the tooltip.
    */
   public hide(): void {
-    if (this.tooltip) {
-      this.tooltip.hide();
+    if (!this.tooltip) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => this.tooltip.hide());
+  }
+
+  ngOnChanges() {
+    if (this.jQueryElement) {
+      this.destroy();
+      this.createControl();
     }
   }
 
   ngOnDestroy() {
-    if (this.tooltip) {
-      this.tooltip.destroy();
-      this.tooltip = null;
-    }
+    this.destroy();
   }
 
-  ngOnChanges() {
-    if (this.tooltip) {
-      this.tooltip.destroy();
-      this.tooltip = null;
-      this.createControl();
-    }
+  private destroy(): void {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // remove the event listeners on this element.
+        this.jQueryElement.off();
+        this.jQueryElement = null;
+      }
+      if (this.tooltip) {
+        this.tooltip.destroy();
+        this.tooltip = null;
+      }
+    });
   }
 }

@@ -315,6 +315,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = null;
       }
       if (this.button) {
         this.button.destroy();
