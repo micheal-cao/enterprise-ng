@@ -51,6 +51,9 @@ interface SohoPopupMenuOptions {
   placementOpts?: SohoPopupmenuPlacementOpts;
 
   offset?: SohoPopupmenuOffset;
+
+  /** If set to true, menu will be removed from the DOM when destroyed */
+  removeOnDestroy?: boolean;
 }
 
 /**

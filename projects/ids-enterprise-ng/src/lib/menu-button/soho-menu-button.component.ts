@@ -146,6 +146,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     return this.options.attachToBody;
   }
 
+  @Input() set removeOnDestroy(value: boolean) {
+    this.options.removeOnDestroy = value;
+    if (this.menuButton) {
+      this.menuButton.settings.removeOnDestroy = value;
+      this.markForRefresh();
+    }
+  }
+
+  get removeOnDestroy(): boolean {
+    return this.options.removeOnDestroy;
+  }
+
   constructor(
     private element: ElementRef,
     private ref: ChangeDetectorRef,
