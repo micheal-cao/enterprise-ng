@@ -1,0 +1,20 @@
+<div class="ids-accordion-panel">
+  <div
+    class="ids-accordion-panel--header accordion-header"
+    role="button"
+    (click)="toggle.emit()"
+  >
+    <p>{{title}}</p>
+    <button *ngIf="hasChevron" class="btn hide-focus" type="button">
+      <svg class="chevron icon" [ngClass]="{'active': expanded}" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon-caret-down"></use>
+      </svg>
+      <span class="audible">Collapse</span>
+    </button>
+  </div>
+  <div [@slideUpDown]='expanded'>
+    <div class="accordion-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

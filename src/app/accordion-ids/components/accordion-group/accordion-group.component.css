@@ -1,0 +1,9 @@
+
+.ids-accordion-panel--header {
+  display: flex;
+  align-items: center;
+}
+
+.ids-accordion-panel--header .btn {
+  margin-left: auto;
+}

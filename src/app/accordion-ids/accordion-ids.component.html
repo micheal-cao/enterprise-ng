@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <h2 class="fieldset-title">Accordion (IDS)</h2>
+    <button soho-button (click)="expandAllPanels()">Expand All</button>
+    <button soho-button (click)="collapseAllPanels()">Collapse All</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <h3 class="fieldset-title">Accordion One Panel</h3>
+    <ids-accordion
+      [allowOnePanel]="true"
+      [expandAll]="expandAllSubject"
+      [collapseAll]="collapseAllSubject"
+    >
+      <ids-accordion-group title="First Group">
+        <p>Content goes here Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores reiciendis, minima, id molestias nihil est neque rem voluptatum fugit numquam, temporibus dolore similique quibusdam soluta tempore eum dicta? Quidem, laborum.</p>
+      </ids-accordion-group>
+      <ids-accordion-group title="Second Group">
+        <p>Second group Content goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas autem quisquam nam dolorem itaque asperiores aliquam ratione id ut iure necessitatibus laborum suscipit voluptates, libero dignissimos, earum veniam sunt eveniet?</p>
+      </ids-accordion-group>
+      <ids-accordion-group title="Third Group">
+        <p>Third group Content goes here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis rem necessitatibus modi non dolores. Quaerat cupiditate nesciunt nisi unde, atque corrupti quis ratione, magni eligendi veniam molestiae voluptatem quas? Eos.</p>
+      </ids-accordion-group>
+      <ids-accordion-group title="Fourth Group">
+        <p>Fourth group Content goes here Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem earum quae in minima. Hic inventore quod veniam ex magnam exercitationem dicta obcaecati sunt eius, nulla eum eos in dolores? Aperiam.</p>
+      </ids-accordion-group>
+    </ids-accordion>
+
+  </div>
+</div>

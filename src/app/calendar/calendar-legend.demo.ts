@@ -20,7 +20,7 @@ export class CalendarLegendDemoComponent {
   public eventTypes: [];
   public events: [];
 
-  constructor(private monthViewService: CalendarDemoService) {}
+  constructor(private monthViewService: CalendarDemoService) { }
 
   public onRenderMonthCallback = (node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {

@@ -7,6 +7,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
@@ -219,6 +220,8 @@ import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-file
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
+import { AccordionIdsComponent } from './accordion-ids/accordion-ids.component';
+import { AccordionIdsModule } from './accordion-ids/accordion-ids.module';
 
 @NgModule({
   declarations: [
@@ -412,6 +415,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     WizardDemoBackupRulePageComponent,
     WizardDemoResultPageComponent,
     WizardDemoValidationRulesPageComponent,
+    AccordionIdsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -423,7 +427,9 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ContextualActionPanelDemoModule,
     ReactiveFormsModule,
     SohoComponentsModule,
-    LocaleInitializerModule
+    LocaleInitializerModule,
+    AccordionIdsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ApplicationMenuLazyService,
