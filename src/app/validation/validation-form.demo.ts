@@ -53,7 +53,17 @@ export class ValidationFormDemoComponent {
   }
 
   public onReset() {
+    const elems = document.querySelectorAll('textarea, input');
+    for (let i = 0; i < elems.length; i++) {
+      elems[i].classList.add('disable-validation');
+    }
     this.demoForm.reset();
     ($('form') as any).resetForm();
+
+    setTimeout(() => {
+      for (let i = 0; i < elems.length; i++) {
+        elems[i].classList.remove('disable-validation');
+      }
+    }, 300);
   }
 }
