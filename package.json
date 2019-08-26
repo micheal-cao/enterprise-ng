@@ -66,6 +66,7 @@
     "codelyzer": "~4.5.0",
     "del": "^2.2.2",
     "htmlhint": "^0.11.0",
+    "ids-css": "1.5.0",
     "inquirer": "^6.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

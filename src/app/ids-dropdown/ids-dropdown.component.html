@@ -1,0 +1,11 @@
+<div class="ids-dropdown" [ngClass]="{'ids-dropdown--open' : open}">
+  <input (click)="toggleMenu()" type="text" class="ids-form-control ids-dropdown--input" placeholder="Select one" />
+  <div class="ids-dropdown--menu">
+    <ul class="ids-list ids-list--hover">
+      <li><a class="ids-list--item ids-list--item--selected" data-value="Option 1">Option 1</a></li>
+      <li><a class="ids-list--item" data-value="Option 2">Option 2</a></li>
+      <li><a class="ids-list--item" data-value="Option 3">Option 3</a></li>
+      <li><a class="ids-list--item" data-value="Option 4">Option 4</a></li>
+    </ul>
+  </div>
+</div>

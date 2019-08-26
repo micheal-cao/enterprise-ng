@@ -221,7 +221,8 @@ import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-fold
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 import { AccordionIdsComponent } from './accordion-ids/accordion-ids.component';
-import { AccordionIdsModule } from './accordion-ids/accordion-ids.module';
+import { AccordionIdsModule } from './accordion-ids/accordion-ids.module';;
+import { IdsDropdownComponent } from './ids-dropdown/ids-dropdown.component'
 
 @NgModule({
   declarations: [
@@ -416,7 +417,8 @@ import { AccordionIdsModule } from './accordion-ids/accordion-ids.module';
     WizardDemoResultPageComponent,
     WizardDemoValidationRulesPageComponent,
     AccordionIdsComponent
-  ],
+,
+    IdsDropdownComponent  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
