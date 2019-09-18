@@ -29,7 +29,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Defines the data to use, must be specified for this component. */
-  @Input() set dataset(dataset: Array<any>) {
+  @Input() public set dataset(dataset: Array<any>) {
     this.options.dataset = dataset;
 
     if (this.column) {
@@ -38,8 +38,8 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
-   /** Chart Type */
-  @Input() set type(value: SohoColumnType) {
+  /** Chart Type */
+  @Input() public set type(value: SohoColumnType) {
     this.options.type = value;
 
     if (this.column) {
@@ -49,7 +49,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Default is a single or stacked chart. */
-  @Input() set isStacked(value: boolean) {
+  @Input() public set isStacked(value: boolean) {
     this.options.isStacked = value;
 
     if (this.column) {
@@ -59,7 +59,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** If false the legend will not be shown. */
-  @Input() set showLegend(value: boolean) {
+  @Input() public set showLegend(value: boolean) {
     this.options.showLegend = value;
 
     if (this.column) {
@@ -69,7 +69,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** true|false - will do or not do the animation, 'initial' will do only first time the animation. */
-  @Input() set animate(value: boolean) {
+  @Input() public set animate(value: boolean) {
     this.options.animate = value;
 
     if (this.column) {
@@ -79,7 +79,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** If true, the component will not resize when resizing the page. */
-  @Input() set redrawOnResize(value: boolean) {
+  @Input() public set redrawOnResize(value: boolean) {
     this.options.redrawOnResize = value;
 
     if (this.column) {
@@ -89,7 +89,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** The d3 axis format. */
-  @Input() set format(value: string) {
+  @Input() public set format(value: string) {
     this.options.format = value;
 
     if (this.column) {
@@ -98,7 +98,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
-  @Input() set formatterString(value: string) {
+  @Input() public set formatterString(value: string) {
     this.options.formatterString = value;
 
     if (this.column) {
@@ -108,7 +108,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Settings for the chart ticks. Can set ticks: {format: d3Format, number: n} */
-  @Input() set ticks(value: object) {
+  @Input() public set ticks(value: object) {
     this.options.ticks = value;
 
     if (this.column) {
@@ -118,7 +118,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** An empty message will be displayed when there is no chart data. */
-  @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
+  @Input() public set emptyMessage(value: SohoEmptyMessageOptions) {
     this.options.emptyMessage = value;
 
     if (this.column) {
@@ -128,7 +128,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Settings for the chart xAxis. */
-  @Input() set xAxis(value: object) {
+  @Input() public set xAxis(value: object) {
     this.options.xAxis = value;
 
     if (this.column) {
@@ -138,7 +138,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Settings for the chart yAxis. */
-  @Input() set yAxis(value: object) {
+  @Input() public set yAxis(value: object) {
     this.options.yAxis = value;
 
     if (this.column) {
@@ -148,7 +148,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Settings for the chart tooltip. */
-  @Input() set tooltip(tooltip: string | SohoColumnTooltipFunction) {
+  @Input() public set tooltip(tooltip: string | SohoColumnTooltipFunction) {
     this.options.tooltip = tooltip;
 
     if (this.column) {
@@ -158,9 +158,9 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Events */
-  @Output() selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
-  @Output() unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
-  @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() public selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
+  @Output() public unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
+  @Output() public rendered: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement: JQuery;
   public column: SohoColumn;

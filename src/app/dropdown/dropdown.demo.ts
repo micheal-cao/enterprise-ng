@@ -14,7 +14,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 export class DropdownDemoComponent {
   @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
 
-  public options: Array<Object> = [
+  public options: Array<any> = [
     { value: 'AL', text: 'Alabama' },
     { value: 'CA', text: 'California' },
     { value: 'DE', text: 'Delaware' },

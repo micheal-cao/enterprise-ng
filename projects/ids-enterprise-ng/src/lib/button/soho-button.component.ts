@@ -59,14 +59,14 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   private _isPressed = false;
 
   /** The type of the button, defaulting to 'secondary'. */
-  @Input('soho-button') set sohoButton(type: SohoButtonType) {
+  @Input('soho-button') public set sohoButton(type: SohoButtonType) {
     this.buttonType = type ? type : SohoButtonComponent.SECONDARY;
   }
 
   /**
    * Sets the button options
    */
-  @Input() set buttonOptions(buttonOptions: SohoButtonOptions) {
+  @Input() public set buttonOptions(buttonOptions: SohoButtonOptions) {
     ArgumentHelper.checkNotNull('buttonOptions', buttonOptions);
 
     this._buttonOptions = buttonOptions;
@@ -74,25 +74,25 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       // todo: how to update the button when options change?
     }
   }
-  get buttonOptions(): SohoButtonOptions {
+  public get buttonOptions(): SohoButtonOptions {
     return this._buttonOptions;
   }
 
-  @Input() set toggleOnIcon(toggleOnIcon: string) {
+  @Input() public set toggleOnIcon(toggleOnIcon: string) {
     this._buttonOptions.toggleOnIcon = toggleOnIcon;
     if (this.jQueryElement) {
       // todo: how to update the button when toggleOnIcon changes?
     }
   }
 
-  @Input() set toggleOffIcon(toggleOffIcon: string) {
+  @Input() public set toggleOffIcon(toggleOffIcon: string) {
     this._buttonOptions.toggleOffIcon = toggleOffIcon;
     if (this.jQueryElement) {
       // todo: how to update the button when toggleOffIcon changes?
     }
   }
 
-  @Input() set replaceText(replaceText: boolean) {
+  @Input() public set replaceText(replaceText: boolean) {
     this._buttonOptions.replaceText = replaceText;
     if (this.jQueryElement) {
       this.button.settings.replaceText = replaceText;
@@ -100,7 +100,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     }
   }
 
-  @Input() set hideMenuArrow(value: boolean) {
+  @Input() public set hideMenuArrow(value: boolean) {
     this._buttonOptions.hideMenuArrow = value;
     if (this.button) {
       this.button.settings.hideMenuArrow = value;
@@ -112,9 +112,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * Used to set an extra class on the soho-icon being used by soho-button.
    * Useful to set emerald06-color azure10-color to change the icon color.
    */
-  @Input() extraIconClass: string;
+  @Input() public extraIconClass: string;
 
-  get hideMenuArrow() {
+  public get hideMenuArrow() {
     return this._buttonOptions.hideMenuArrow;
   }
 
@@ -122,22 +122,22 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * Whether this button should be a toggle button or not. Alternate toggle on/off icons
    * can be used through toggleOnIcon/toggleOffIcon inputs.
    */
-  @Input() set isToggle(isToggle: boolean) {
+  @Input() public set isToggle(isToggle: boolean) {
     this._isToggle = isToggle;
   }
 
-  get isToggle(): boolean {
+  public get isToggle(): boolean {
     return this._isToggle;
   }
 
   /**
    * Whether the toggle button should be in a pressed state or not.
    */
-  @Input() set isTogglePressed(isTogglePressed: boolean) {
+  @Input() public set isTogglePressed(isTogglePressed: boolean) {
     this._isTogglePressed = isTogglePressed;
   }
 
-  get isTogglePressed(): boolean {
+  public get isTogglePressed(): boolean {
     return this._isTogglePressed;
   }
 
@@ -145,13 +145,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * The icon to be used
    *  - shows when the state is true if toggle has a value
    */
-  @Input() icon: string;
+  @Input() public icon: string;
 
   /** Sets the button type to 'submit' when true. */
-  @Input() isSubmit = false;
+  @Input() public isSubmit = false;
 
   /** Sets whether the button should have a ripple effect on click. */
-  @Input() ripple = true;
+  @Input() public ripple = true;
 
   /**
    * Binary state (toggle):
@@ -160,93 +160,102 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    *
    *  @deprecated use isToggle=true input instead along with toggleOnIcon/toggleOffIcon options
    */
-  @Input() state = undefined;
+  @Input() public state = undefined;
 
   /**
    * The icon to be used when the state is false.
    * @deprecated use isToggle=true input instead along with toggleOnIcon/toggleOffIcon options
    */
-  @Input() toggle: string;
+  @Input() public toggle: string;
 
   /**
    * Sets the expandable-expander class to be placed on the button for the
    * soho-expandablearea to use as it's expand/collapse trigger
    *
    */
-  @Input() expandableExpander = false;
+  @Input() public expandableExpander = false;
 
   @HostBinding('class.btn')
-  get btn() {
+  public get btn() {
     return this.buttonType === SohoButtonComponent.BTN;
   }
 
   @HostBinding('class.btn-primary')
-  get btnPrimary() {
+  public get btnPrimary() {
     return this.buttonType === SohoButtonComponent.PRIMARY;
   }
 
   @HostBinding('class.btn-secondary')
-  get btnSecondary() {
+  public get btnSecondary() {
     return this.buttonType === SohoButtonComponent.SECONDARY;
   }
 
   @HostBinding('class.btn-tertiary')
-  get btnTertiary(): boolean {
+  public get btnTertiary(): boolean {
     return this.buttonType === SohoButtonComponent.TERTIARY;
   }
 
   @HostBinding('class.btn-icon')
-  get btnIcon(): boolean {
+  public get btnIcon(): boolean {
     return this.buttonType === SohoButtonComponent.ICON || this.buttonType === SohoButtonComponent.FAVORITE;
   }
 
-  @HostBinding('class.btn-toggle') get btnToggle() {
+  @HostBinding('class.btn-toggle')
+  public get btnToggle() {
     return this.isToggle;
   }
 
-  @HostBinding('class.btn-modal') get btnModal() {
+  @HostBinding('class.btn-modal')
+  public get btnModal() {
     return this.buttonType === SohoButtonComponent.MODAL;
   }
 
-  @HostBinding('class.btn-modal-primary') get btnModalPrimary() {
+  @HostBinding('class.btn-modal-primary')
+  public get btnModalPrimary() {
     return this.buttonType === SohoButtonComponent.MODAL_PRIMARY;
   }
 
-  @HostBinding('class.is-pressed') get btnTogglePressed() {
+  @HostBinding('class.is-pressed')
+  public get btnTogglePressed() {
     return this.isTogglePressed;
   }
 
-  @HostBinding('class.icon-favorite') get iconFavorite(): boolean {
+  @HostBinding('class.icon-favorite')
+  public get iconFavorite(): boolean {
     return this.buttonType === SohoButtonComponent.FAVORITE;
   }
 
-  @HostBinding('class.btn-moveto-left') @Input() moveToLeft;
-  @HostBinding('class.btn-moveto-right') @Input() moveToRight;
-  @HostBinding('class.btn-moveto-selected') @Input() moveToSelected;
+  @HostBinding('class.btn-moveto-left') @Input() public moveToLeft;
+  @HostBinding('class.btn-moveto-right') @Input() public moveToRight;
+  @HostBinding('class.btn-moveto-selected') @Input() public moveToSelected;
 
   @HostBinding('class.no-ripple')
-  get noRipple(): boolean {
+  public get noRipple(): boolean {
     return !this.ripple;
   }
 
-  @HostBinding('attr.type') get type() {
+  @HostBinding('attr.type')
+  public get type() {
     return this.isSubmit ? 'submit' : 'button';
   }
 
-  @HostBinding('class.expandable-expander') get isExpandableExpander() {
+  @HostBinding('class.expandable-expander')
+  public get isExpandableExpander() {
     return this.expandableExpander;
   }
 
   /**
    * @deprecated no longer needed once this.toggle is removed.
    */
-  @HostListener('click') toggleState() {
+  @HostListener('click')
+  public toggleState() {
     if (this.toggle) {  // tslint:disable-line
       this.state = !this.state; // tslint:disable-line
     }
   }
 
-  @HostBinding('attr.aria-pressed') get ariaPressed() {
+  @HostBinding('attr.aria-pressed')
+  public get ariaPressed() {
     return this.isTogglePressed;
   }
 

@@ -16,7 +16,7 @@ export class ColumnGroupedDemoComponent implements OnInit {
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component C'};
-  private selection: SohoColumnSelected  = {groupIndex: 1};
+  private selection: SohoColumnSelected = { groupIndex: 1 };
 
   public columnGroupedData = [{
     data: [{
@@ -65,17 +65,17 @@ export class ColumnGroupedDemoComponent implements OnInit {
     name: 'Component C'
   }];
 
-  public columnType = 'column-grouped';
+  public columnType: SohoColumnType = 'column-grouped';
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent.setSelected(SohoColumnSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent.toggleSelected(SohoColumnSelected);
   }

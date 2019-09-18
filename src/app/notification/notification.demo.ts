@@ -6,7 +6,7 @@ import {
 import { SohoNotificationService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-notification-demo',
+  selector: 'demo-notification-demo',
   templateUrl: './notification.demo.html',
   styles: [`#show-notification-btn{bottom: 20px; right: 20px; position: fixed;}`]
 })

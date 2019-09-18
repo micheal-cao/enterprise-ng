@@ -171,7 +171,7 @@ export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string 
       </div>
   `
 })
-export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
+export class CodeBlockEditorComponent implements SohoDataGridCellEditor {
   @ViewChild(CodeBlockComponent, { static: true }) codeblock: CodeBlockComponent;
 
   value: string;
@@ -185,7 +185,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
     department: '102'
   };
 
-  constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.value = args.value;
   }
 
@@ -241,7 +241,8 @@ export const COLUMNS: SohoDataGridColumn[] = [
     editor: Soho.Editors.Input
   },
 
-  { id: 'codeBlock',
+  {
+    id: 'codeBlock',
     name: 'Code Block',
     field: 'codeBlock',
     sortable: false,

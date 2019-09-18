@@ -32,23 +32,23 @@ export class DataGridStandardFormatterDemoComponent implements OnInit {
     /**
      * Add a column for the custom formatter
      */
-    const statusColumn = {
+    const statusColumn: SohoDataGridColumn = {
       id: 'status',
       name: 'Status',
       field: 'status',
       width: 100,
       formatter: Soho.Formatters.Alert,
       options: [
-        { id: 'Active',  value: 'Active',  label: 'Active' },
-        { id: 'Inactive', value: 'Inactive', label: 'Inactive' },
-        { id: 'Late',    value: 'Late',    label: 'Late' },
-        { id: 'On Hold', value: 'On Hold', label: 'On Hold' }
+        { value: 'Active', label: 'Active' },
+        { value: 'Inactive', label: 'Inactive' },
+        { value: 'Late', label: 'Late' },
+        { value: 'On Hold', label: 'On Hold' }
       ],
       ranges: [
-        { 'value': 'Active',  'classes': 'confirm', text: 'Active' },
-        { 'value': 'Inactive', 'classes': 'alert',  text: 'Inactive' },
-        { 'value': 'Late',    'classes': 'error',   text: 'Late' },
-        { 'value': 'On Hold', 'classes': 'info',    text: 'On Hold' },
+        { 'value': 'Active', 'classes': 'confirm', text: 'Active' },
+        { 'value': 'Inactive', 'classes': 'alert', text: 'Inactive' },
+        { 'value': 'Late', 'classes': 'error', text: 'Late' },
+        { 'value': 'On Hold', 'classes': 'info', text: 'On Hold' },
       ]
     };
 
@@ -61,7 +61,7 @@ export class DataGridStandardFormatterDemoComponent implements OnInit {
       showPercentText: true,
     };
 
-    const columns = [ ...PAGING_COLUMNS, statusColumn, ratedColumn ];
+    const columns = [...PAGING_COLUMNS, statusColumn, ratedColumn];
 
     return {
       columns: columns,

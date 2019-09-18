@@ -31,15 +31,16 @@
 
       <ng-template [ngIf]="currentToolbarOptions">
         <ng-template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
-          <button *ngIf="!button.menu" soho-button="{{button?.type}}" isToggle="{{button?.istoggle}}" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}" toggleOnIcon="{{button?.toggleOnIcon}}" toggleOffIcon="{{button?.toggleOffIcon}}">{{button?.text}}</button>
+          <button *ngIf="!button.menu" [soho-button]="button?.type" [isToggle]="button?.istoggle" [icon]="button?.icon" [id]="button?.id" [attr.data-button]="button?.data"
+            [toggleOnIcon]="button?.toggleOnIcon" [toggleOffIcon]="button?.toggleOffIcon">{{button?.text}}</button>
 
           <ng-template [ngIf]="button.menu">
-            <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >
+            <button soho-menu-button [attr.id]="button?.id" menu="buttonPopupMenu" [icon]="button?.icon"  [attr.data-button]="button?.data" >
               {{button?.text}}</button>
             <div class="popupmenu-wrapper bottom" role="application" aria-hidden="true">
               <ul soho-popupmenu id="buttonPopupMenu">
-                <li soho-popupmenu-item *ngFor="let item of button.menu" id="{{item?.id}}">
-                  <a soho-popupmenu-label attr.data="{{item?.data}}">{{item?.text}}</a>
+                <li soho-popupmenu-item *ngFor="let item of button.menu" [attr.id]="item?.id">
+                  <a soho-popupmenu-label [attr.data]="item?.data">{{item?.text}}</a>
                 </li>
               </ul>
             </div>

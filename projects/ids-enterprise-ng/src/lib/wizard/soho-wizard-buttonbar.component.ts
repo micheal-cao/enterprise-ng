@@ -77,24 +77,33 @@ export class SohoWizardButtonbarComponent {
 
   @Input()
   public buttons = [
-    { id:       'previous',
-      text:     Soho.Locale.translate('Previous'),
-      click:    () => { this.wizard.previous(); },
+    {
+      id: 'previous',
+      type: undefined,
+      text: Soho.Locale.translate('Previous'),
+      click: () => { this.wizard.previous(); },
       disabled: () => !this.wizard.hasPrevious(),
-      position: 'middle'
+      position: 'middle',
+      icon: undefined
     },
-    { id:        'next',
-      text:      Soho.Locale.translate('Next'),
-      click:     () => { this.wizard.next(); },
-      disabled:  () => !this.wizard.hasNext(),
+    {
+      id: 'next',
+      type: undefined,
+      text: Soho.Locale.translate('Next'),
+      click: () => { this.wizard.next(); },
+      disabled: () => !this.wizard.hasNext(),
       isDefault: true,
-      position:  'middle'
+      position: 'middle',
+      icon: undefined
     },
-    { id:        'finish',
-      text:      'Finish', // Soho.Locale.translate('Finish'),
-      click:     () => { this.wizard.finish(); },
-      disabled:  () => this.wizard.hasFinished(),
-      position:  'right'
+    {
+      id: 'finish',
+      type: undefined,
+      text: 'Finish', // Soho.Locale.translate('Finish'),
+      click: () => { this.wizard.finish(); },
+      disabled: () => this.wizard.hasFinished(),
+      position: 'right',
+      icon: undefined
     }];
 
   @HostBinding('class.buttonset') isButtonBar = false;

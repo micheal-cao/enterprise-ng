@@ -16,7 +16,7 @@ export class ToolbarFlexSearchfieldDemoComponent {
   /**
    * The set of options we link to in this example.
    */
-  searchfieldOptions = {
+  searchfieldOptions: SohoToolbarFlexSearchFieldOptions = {
     filterMode: 'contains',
   };
 

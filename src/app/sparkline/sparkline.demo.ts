@@ -39,14 +39,14 @@ export class SparklineDemoComponent implements OnInit {
     name: 'Inventory'
   }];
 
-  public sparklineType1 = 'sparkline-dots-n-peak';
-  public sparklineType2 = 'sparkline-peak';
-  public sparklineType3 = 'sparkline-medianrange-n-peak';
-  public sparklineType4 = 'sparkline-minmax';
-  public sparklineType5 = 'sparkline';
+  public sparklineType1: SohoSparklineType = 'sparkline-dots-n-peak';
+  public sparklineType2: SohoSparklineType = 'sparkline-peak';
+  public sparklineType3: SohoSparklineType = 'sparkline-medianrange-n-peak';
+  public sparklineType4: SohoSparklineType = 'sparkline-minmax';
+  public sparklineType5: SohoSparklineType = 'sparkline';
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   onRendered(event: Event) {
     console.log('Soho Sparkline: onRender', event);

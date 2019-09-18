@@ -14,7 +14,7 @@ export class BarDemoComponent implements OnInit {
   @ViewChild(SohoBarComponent, { static: true }) sohoBarComponent: SohoBarComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
-  private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: 'Category B'};
+  private selection: SohoBarSelected = { fieldName: 'name', fieldValue: 'Category B' };
   // private selection: SohoBarSelected  = {index: 0};
 
   public barData = [{
@@ -22,27 +22,27 @@ export class BarDemoComponent implements OnInit {
       name: 'Category A',
       value: 373,
       url: 'test'
-      }, {
-        name: 'Category B',
-        value: 372
-      }, {
-        name: 'Category C',
-        value: 236.35
+    }, {
+      name: 'Category B',
+      value: 372
+    }, {
+      name: 'Category C',
+      value: 236.35
     }],
     name: ''
   }];
 
-  public barType = 'bar';
-  constructor() {}
+  public barType: SohoBarType = 'bar';
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent.setSelected(SohoBarSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent.toggleSelected(SohoBarSelected);
   }

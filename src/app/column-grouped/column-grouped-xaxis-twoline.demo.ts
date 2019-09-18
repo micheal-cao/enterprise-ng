@@ -61,9 +61,9 @@ export class ColumnGroupedXaxisTwolineDemoComponent implements OnInit {
     name: 'Year:2018 Component-C'
   }];
 
-  public columnType = 'column-grouped';
+  public columnType: SohoColumnType = 'column-grouped';
 
-  constructor() {}
+  constructor() { }
   public xAxis: {};
   ngOnInit() {
     this.xAxis = {

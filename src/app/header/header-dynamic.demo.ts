@@ -13,7 +13,7 @@ import { SohoToolbarComponent } from 'ids-enterprise-ng';
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-header-dynamic-demo',
+  selector: 'demo-header-dynamic-demo',
   templateUrl: './header-dynamic.demo.html'
 })
 export class SohoHeaderDynamicDemoComponent {

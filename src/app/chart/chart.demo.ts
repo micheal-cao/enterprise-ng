@@ -28,7 +28,7 @@ export class ChartDemoComponent implements OnInit {
     return '100%';
   }
 
-  public lineAxisLabels: AxisLabels =  {
+  public lineAxisLabels: AxisLabels = {
     left: 'Left axis label',
     top: 'Top axis label',
     right: 'Right axis label',
@@ -49,7 +49,7 @@ export class ChartDemoComponent implements OnInit {
   public formatterString = '$,.2f';
   public showLegend = true;
   public hideLabel = true;
-  public barGroupedChart = 'bar-grouped';
+  public barGroupedChart: ChartTypes = 'bar-grouped';
   public pieChart = 'pie';
   public columnChart = 'column';
   public barChart = 'bar';
@@ -119,7 +119,7 @@ export class ChartDemoComponent implements OnInit {
     if (chartOptions.labels) {
       chartOptions.labels.hideLabels = !this.hideLabel;
     } else {
-      chartOptions['labels'] = {hideLabels: !this.hideLabel};
+      chartOptions['labels'] = { hideLabels: !this.hideLabel };
     }
     this.sohoChartComponent.chartOptions = chartOptions;
   }

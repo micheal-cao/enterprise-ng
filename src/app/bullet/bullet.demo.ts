@@ -9,19 +9,20 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-bullet-demo',
+  selector: 'demo-bullet-demo',
   templateUrl: './bullet.demo.html',
 })
 export class BulletDemoComponent implements OnInit {
 
-  public bulletData1 = [{
+  public bulletData1: SohoDatasetOptions[] = [{
     data: [
-      {'title': 'Revenue',
-      'subtitle': 'US$, in thousands',
-      'ranges': [150, 225, 300, 400, 600],
-      'measures': [220, 270],
-      'markers': [250],
-      url: 'http://someplace.com',
+      {
+        'title': 'Revenue',
+        'subtitle': 'US$, in thousands',
+        'ranges': [150, 225, 300, 400, 600],
+        'measures': [220, 270],
+        'markers': [250],
+        url: 'http://someplace.com',
         tooltip: ['<b>Poor</b> 150', '<b>Ok</b> 225', '<b>Good</b> 300', '<b>Excellent</b> 400', '<b>Revenue</b> 600']
       }
     ],
@@ -32,11 +33,12 @@ export class BulletDemoComponent implements OnInit {
 
   public bulletData2 = [{
     data: [
-      {'title': 'Profit',
-      'subtitle': '%',
-      'ranges': [20, 25, 30],
-      'measures': [17, 21],
-      'markers': [26]
+      {
+        'title': 'Profit',
+        'subtitle': '%',
+        'ranges': [20, 25, 30],
+        'measures': [17, 21],
+        'markers': [26]
       }
     ],
     barColors: ['#ADD8EB', '#69B5DD', '#368AC0'],
@@ -44,8 +46,8 @@ export class BulletDemoComponent implements OnInit {
     markerColors: ['#000000']
   }];
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   onRendered(event: Event) {
     console.log('Soho Radar: onRender', event);

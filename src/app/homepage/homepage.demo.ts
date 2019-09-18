@@ -8,7 +8,7 @@ import { SohoHomePageComponent } from 'ids-enterprise-ng';
 export class HomePageDemoComponent {
   @ViewChild(SohoHomePageComponent, { static: true }) homepage: SohoHomePageComponent;
 
-  public demoTasks: Object[];
+  public demoTasks: any[];
 
   public pieData = [{
     data: [{

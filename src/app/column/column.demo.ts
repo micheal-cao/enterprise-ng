@@ -15,7 +15,7 @@ export class ColumnDemoComponent implements OnInit {
   @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent: SohoColumnComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
-  private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Equipment'};
+  private selection: SohoColumnSelected = { fieldName: 'name', fieldValue: 'Equipment' };
   // private selection: SohoColumnSelected  = {index: 6};
 
   public columnData = [{
@@ -58,17 +58,17 @@ export class ColumnDemoComponent implements OnInit {
     }]
   }];
 
-  public columnType = 'column';
+  public columnType: SohoColumnType = 'column';
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent.setSelected(SohoColumnSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent.toggleSelected(SohoColumnSelected);
   }

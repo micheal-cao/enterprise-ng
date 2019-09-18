@@ -76,5 +76,5 @@ export * from './tree/index';
 export * from './treemap/index';
 export * from './utils/index';
 export * from './wizard/index';
-
+export * from './version/index';
 export * from './soho-components.module';

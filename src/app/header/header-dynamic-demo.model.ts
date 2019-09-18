@@ -1,3 +1,4 @@
+import { SohoButtonType } from 'ids-enterprise-ng';
 
 export interface HeaderDynamicToolbarOptions {
   toolbarButtons: Array<HeaderDynamicButtonOptions>;
@@ -23,7 +24,7 @@ export interface HeaderDynamicButtonOptions {
   // The text for the button.
   text?: string;
   // The icon for the button.
-  type?: string;
+  type?: SohoButtonType;
   // The type of button 'primary,secondary,tertiaty,icon'
   istoggle?: boolean;
   // Is icon toggle

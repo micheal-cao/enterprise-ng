@@ -37,7 +37,7 @@ export class TrackDirtyDemoComponent implements OnInit {
   ngOnInit() { }
 
   saveForm() {
-    this.trackDirtyComponents.forEach( (trackDirty: SohoTrackDirtyDirective) => {
+    this.trackDirtyComponents.forEach((trackDirty: SohoTrackDirtyDirective) => {
       trackDirty.resetDirty();
     });
   }
@@ -64,7 +64,7 @@ export class TrackDirtyDemoComponent implements OnInit {
     console.log('TrackDirtyDemoComponent.onPristine');
   }
 
-  onLookupClick = (event: Event) => {
+  onLookupClick: SohoLookupClickFunction = (e: JQuery.TriggeredEvent, lookup: SohoLookupStatic) => {
     const data = [JSON.parse(`{"data":{
     "fields": {
       "RelationshipToOrganization": {
@@ -75,8 +75,8 @@ export class TrackDirtyDemoComponent implements OnInit {
     this.sohoLookup.setValue(data);
   }
 
-  onLookupField = (data: DataFields) => {
-    return data.fields['RelationshipToOrganization'].value;
+  onLookupField = (data: Object, input: JQuery, grid: SohoDataGridStatic) => {
+    return (data as any).fields['RelationshipToOrganization'].value;
   }
 }
 

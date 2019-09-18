@@ -15,7 +15,7 @@ export class ColumnStackedDemoComponent implements OnInit {
   @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent: SohoColumnComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
-  private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Mar'};
+  private selection: SohoColumnSelected = { fieldName: 'name', fieldValue: 'Mar' };
   // private selection: SohoColumnSelected  = {index: 8};
 
   public columnStackedData = [{
@@ -101,17 +101,17 @@ export class ColumnStackedDemoComponent implements OnInit {
     name: 'Component C'
   }];
 
-  public columnType = 'column-stacked';
+  public columnType: SohoColumnType = 'column-stacked';
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent.setSelected(SohoColumnSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent.toggleSelected(SohoColumnSelected);
   }

@@ -16,7 +16,7 @@ export class BarGroupedDemoComponent implements OnInit {
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoBarSelected  = {groupName: 'name', groupValue: 'Component B'};
-  private selection: SohoBarSelected  = {groupIndex: 2};
+  private selection: SohoBarSelected = { groupIndex: 2 };
 
   public barGroupedData = [{
     data: [{
@@ -41,7 +41,7 @@ export class BarGroupedDemoComponent implements OnInit {
     }],
     name: 'Component B'
   }, {
-  data: [{
+    data: [{
       name: 'Jan', value: 32
     }, {
       name: 'Feb', value: 31
@@ -53,18 +53,18 @@ export class BarGroupedDemoComponent implements OnInit {
     name: 'Component C'
   }];
 
-  public barType = 'bar-grouped';
+  public barType: SohoBarType = 'bar-grouped';
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent.setSelected(SohoBarSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent.toggleSelected(SohoBarSelected);
   }

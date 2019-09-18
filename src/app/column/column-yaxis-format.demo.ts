@@ -54,9 +54,9 @@ export class ColumnYAxisDemoComponent implements OnInit {
     }]
   }];
 
-  public columnType = 'column';
+  public columnType: SohoColumnType = 'column';
 
-  constructor() {}
+  constructor() { }
   public yAxis: {};
   ngOnInit() {
     this.yAxis = {

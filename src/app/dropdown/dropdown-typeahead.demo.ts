@@ -31,7 +31,7 @@ export class DropdownTypeaheadDemoComponent implements AfterViewInit {
   };
 
   /** */
-  public settings = {
+  public settings: SohoDropDownOptions = {
     reload: 'typeahead'
   };
 
@@ -40,7 +40,7 @@ export class DropdownTypeaheadDemoComponent implements AfterViewInit {
 
   constructor() { }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
 
   toggleModel() {
     this.showModel = !this.showModel;

@@ -13,7 +13,7 @@ interface SohoBulletOptions {
   type?: string;
 
   /** Defines the data to use, must be specified for this component. */
-  dataset?: SohoDatasetOptions;
+  dataset?: SohoDatasetOptions[];
 
   /** true|false - will do or not do the animation, 'initial' will do only first time the animation. */
   animate?: boolean | string;
@@ -28,6 +28,10 @@ interface SohoDatasetOptions {
 
   /** Tooltip contents for each point. */
   tooltip?: any[];
+
+  barColors: string[];
+  lineColors: string[];
+  markerColors: string[];
 }
 
 /**

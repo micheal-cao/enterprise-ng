@@ -16,7 +16,7 @@ export class BarStackedDemoComponent implements OnInit {
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};
-  private selection: SohoBarSelected  = {index: 0};
+  private selection: SohoBarSelected = { index: 0 };
 
   public barStackedData = [{
     data: [{
@@ -44,18 +44,18 @@ export class BarStackedDemoComponent implements OnInit {
     name: 'Series 2'
   }];
 
-  public barType = 'bar-stacked';
+  public barType: SohoBarType = 'bar-stacked';
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent.setSelected(SohoBarSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent.toggleSelected(SohoBarSelected);
   }
