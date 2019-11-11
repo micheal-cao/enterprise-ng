@@ -13,6 +13,7 @@ import {
   Output,
   QueryList,
   forwardRef,
+  Inject,
 } from '@angular/core';
 
 import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
@@ -224,7 +225,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    * @param elementRef - the element matching the component's selector.
    * @param ngZone - zone access.
    */
-  constructor(private element: ElementRef, private ngZone: NgZone) {}
+  constructor(@Inject(ElementRef) private element: ElementRef, @Inject(NgZone) private ngZone: NgZone) { }
 
   // -------------------------------------------
   // Public API

@@ -10,6 +10,7 @@ import {
   NgZone,
   Output,
   OnDestroy,
+  Inject,
 } from '@angular/core';
 
 /**
@@ -147,9 +148,9 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
    * @param elementRef - the element matching the component's selector.
    */
   constructor(
-    private elementRef: ElementRef,
-    private ngZone: NgZone,
-  ) {}
+    @Inject(ElementRef) private elementRef: ElementRef,
+    @Inject(NgZone) private ngZone: NgZone
+  ) { }
 
   // -------------------------------------------
   // Public API

@@ -13,6 +13,7 @@ import {
   NgZone,
   OnDestroy,
   Output,
+  Inject,
 } from '@angular/core';
 
 /********************************************************************
@@ -363,10 +364,10 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   private updateRequired: boolean;
 
   constructor(
-    private element: ElementRef,
-    private ngZone: NgZone,
-    public ref: ChangeDetectorRef
-  ) {}
+    @Inject(ElementRef) private element: ElementRef,
+    @Inject(NgZone) private ngZone: NgZone,
+    @Inject(ChangeDetectorRef) public ref: ChangeDetectorRef
+  ) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -375,10 +376,10 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
       // Add listeners to emit events
       this.jQueryElement
-      .on('selected', (e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
-      .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args))
-      .on('eventclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventClick(args))
-      .on('eventdblclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args))
+        .on('selected', (e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
+        .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args))
+        .on('eventclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventClick(args))
+        .on('eventdblclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args))
         .on('contextmenu', (e: any, args: SohoCalendarEventClickEvent) => this.onEventContextMenu(args));
 
       // Initialise the Soho control.

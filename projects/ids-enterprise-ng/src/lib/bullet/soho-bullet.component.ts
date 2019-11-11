@@ -12,6 +12,7 @@ import {
   NgZone,
   OnDestroy,
   Output,
+  Inject,
 } from '@angular/core';
 
 @Component({
@@ -67,8 +68,8 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   private updateRequired = false;
 
   constructor(
-    private element: ElementRef,
-    private ngZone: NgZone,
+    @Inject(ElementRef) private element: ElementRef,
+    @Inject(NgZone) private ngZone: NgZone
   ) { }
 
   ngAfterViewInit() {

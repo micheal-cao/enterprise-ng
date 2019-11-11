@@ -12,6 +12,7 @@ import {
   NgZone,
   OnDestroy,
   Output,
+  Inject,
 } from '@angular/core';
 
 @Component({
@@ -38,7 +39,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
-   /** Chart Type */
+  /** Chart Type */
   @Input() set type(value: SohoBarType) {
     this.options.type = value;
 
@@ -211,8 +212,8 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   private updateRequired = false;
 
   constructor(
-    private element: ElementRef,
-    private ngZone: NgZone,
+    @Inject(ElementRef) private element: ElementRef,
+    @Inject(NgZone) private ngZone: NgZone
   ) { }
 
   /** Setup */
@@ -264,7 +265,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     this.ngZone.runOutsideAngular(() => this.bar.toggleSelected(selected));
   }
 
-  public getSelected():  SohoBarSelected {
+  public getSelected(): SohoBarSelected {
     return this.ngZone.runOutsideAngular(() => this.bar.getSelected());
   }
 }

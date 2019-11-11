@@ -5,7 +5,8 @@ import {
   Directive,
   ElementRef,
   Input,
-  NgZone
+  NgZone,
+  Inject
 } from '@angular/core';
 
 /**
@@ -70,9 +71,8 @@ export class SohoAlertDirective implements AfterViewInit {
   }
 
   constructor(
-    public elementRef: ElementRef,
-    private ngZone: NgZone,
-  ) {
+    @Inject(ElementRef) public elementRef: ElementRef,
+    @Inject(NgZone) private ngZone: NgZone) {
     this._options.inline = true;
   }
 

@@ -12,6 +12,7 @@ import {
   OnDestroy,
   Output,
   NgZone,
+  Inject,
 } from '@angular/core';
 
 /**
@@ -195,9 +196,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
   // Constructor.
   constructor(
-    private elementRef: ElementRef,
-    private ngZone: NgZone,
-  ) { }
+    @Inject(ElementRef) private elementRef: ElementRef,
+    @Inject(NgZone) private ngZone: NgZone) {
+  }
 
   // -------------------------------------------
   // Public API

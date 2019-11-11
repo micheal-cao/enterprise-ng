@@ -11,7 +11,8 @@ import {
   HostListener,
   Input,
   OnDestroy,
-  Output
+  Output,
+  Inject
 } from '@angular/core';
 
 import {
@@ -137,12 +138,12 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     }
   }
 
-  constructor(private element: ElementRef) {
+  constructor(@Inject(ElementRef) private element: ElementRef) {
     super();
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp(_: KeyboardEvent) {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
     this.internalValue = this.jQueryElement.val() as string;

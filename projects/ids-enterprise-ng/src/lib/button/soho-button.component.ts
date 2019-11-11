@@ -11,6 +11,7 @@ import {
   NgZone,
   OnDestroy,
   OnInit,
+  Inject,
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -264,7 +265,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    *
    * @param elementRef - the element matching the component's selector.
    */
-  constructor(private element: ElementRef, private ngZone: NgZone) {
+  constructor(
+    @Inject(ElementRef) private element: ElementRef,
+    @Inject(NgZone) private ngZone: NgZone) {
   }
 
   // ------------------------------------------
