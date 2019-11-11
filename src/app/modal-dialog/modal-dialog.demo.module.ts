@@ -12,6 +12,8 @@ import { ModalDialogDemoComponent } from './modal-dialog.demo';
 import { ExampleModalDialogComponent } from './example-modal-dialog.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
+import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component';
+import { FullSizeModalDialogComponent } from './example-fullsize-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component'
     ExampleModalDialogComponent,
     ModalDialogDemoComponent,
     VetoableModalDialogComponent,
+    ModalDialogDataGridComponent,
+    FullSizeModalDialogComponent
   ],
   exports: [
   ],
@@ -35,7 +39,9 @@ import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component'
     // You need to add any 'dynamic' components to the entry components otherwise the factory can't find them.
     ExampleModalDialogComponent,
     NestedModalDialogComponent,
-    VetoableModalDialogComponent
+    VetoableModalDialogComponent,
+    ModalDialogDataGridComponent,
+    FullSizeModalDialogComponent
   ],
 })
-export class ModalDialogDemoModule {}
+export class ModalDialogDemoModule { }

@@ -295,6 +295,9 @@ interface SohoDataGridOptions {
    * or if one or more child node got match then add parent node and only matching children nodes
    */
   allowChildExpandOnMatch?: boolean;
+
+  /* Html string for the expandable row area*/
+  rowTemplate?: string;
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
@@ -1163,9 +1166,16 @@ interface SohoDataGridRowClicked {
   row: number;
 }
 
+type SohoDataGridHeaderCheckboxState = 'all' | 'none' | 'partial';
+
+type SohoDataGridSelectedEventType = 'deselectall' | 'selectall' | 'select' | 'deselect';
+
 interface SohoDataGridSelectedEvent {
   e: JQuery.TriggeredEvent;
   rows: SohoDataGridSelectedRow[];
+
+  /** What was the action that caused the event? */
+  type: SohoDataGridSelectedEventType;
 }
 
 interface SohoDataGridCellChangeEvent {

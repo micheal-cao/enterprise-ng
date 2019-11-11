@@ -94,9 +94,12 @@ import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-pa
 import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
+import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-user-settings.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridExpandableRowDemoComponent } from './datagrid/datagrid-expandable-row.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
+import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
@@ -182,6 +185,7 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
@@ -285,9 +289,12 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     DatagridStandalonePagerDemoComponent,
     DataGridPagingServiceDemoComponent,
     DataGridRowReorderDemoComponent,
+    DataGridSaveUserSettingsDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
+    DataGridExpandableRowDemoComponent,
     DataGridStandardFormatterDemoComponent,
+    DataGridTabDemoComponent,
     DataGridTestSettingsDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
@@ -377,6 +384,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     TabsDismissibleDemoComponent,
     TabsDropdownDemoComponent,
     TabsDynamicDemoComponent,
+    TabsModuleDemoComponent,
     TabsVerticalDemoComponent,
     TagDemoComponent,
     TestTabsBasicComponent,

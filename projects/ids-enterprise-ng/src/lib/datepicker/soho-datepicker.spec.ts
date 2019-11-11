@@ -1,7 +1,7 @@
 /// <reference path="soho-datepicker.d.ts" />
 
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { Component, DebugElement, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
@@ -22,6 +22,7 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       [showLegend]="_showLegend"
       [showMonthYearPicker]="_showMonthYearPicker"
       [legend]="_legend"
+      [locale]="_locale"
       [calendarName]="_calendarName"
       [mode]="_mode"
       [range]="_range"
@@ -99,6 +100,22 @@ class TestDatePickerComponent {
     }
   }
 
+  public _showToday: boolean;
+  @Input() set showToday(showToday: boolean) {
+    this._showToday = showToday;
+    if (this.datepicker) {
+      this.datepicker.showToday = this._showToday;
+    }
+  }
+
+  public _autoSize: boolean;
+  @Input() set autoSize(autoSize: boolean) {
+    this._autoSize = autoSize;
+    if (this.datepicker) {
+      this.datepicker.autoSize = this._autoSize;
+    }
+  }
+
   public _roundToInterval: boolean;
   @Input() set roundToInterval(roundToInterval: boolean) {
     this._roundToInterval = roundToInterval;
@@ -144,6 +161,14 @@ class TestDatePickerComponent {
     this._legend = legend;
     if (this.datepicker) {
       this.datepicker.legend = this._legend;
+    }
+  }
+
+  public _locale: string;
+  @Input() set locale(locale: string) {
+    this._locale = locale;
+    if (this.datepicker) {
+      this.datepicker.locale = this._locale;
     }
   }
 
@@ -211,7 +236,7 @@ class TestDatePickerComponent {
     }
   }
 
-  onChange(value) {
+  onChange(value: any) {
     this.changed.emit(value);
   }
 }
@@ -219,8 +244,6 @@ class TestDatePickerComponent {
 describe('Soho Datepicker Unit Tests', () => {
   let comp: TestDatePickerComponent;
   let fixture: ComponentFixture<TestDatePickerComponent>;
-  let de: DebugElement;
-  let el: HTMLInputElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -232,8 +255,6 @@ describe('Soho Datepicker Unit Tests', () => {
     comp = fixture.componentInstance;
     fixture.detectChanges();
 
-    de = fixture.debugElement;
-    el = de.nativeElement;
     Soho.Locale.set('en-US').done(() => {
       // We ought to wait!
     });
@@ -271,6 +292,7 @@ describe('Soho Datepicker Unit Tests', () => {
       minuteInterval: 10,
       secondInterval: 10,
       firstDayOfWeek: 0,
+      showToday: true,
       roundToInterval: true,
       dateFormat: 'mm/dd/yyyy',
       placeholder: 'placeholder',
@@ -293,6 +315,7 @@ describe('Soho Datepicker Unit Tests', () => {
       showLegend: false,
       showMonthYearPicker: false,
       legend: [{ name: 'Mondays', color: '#EFA880', dayOfWeek: [1] }],
+      locale: 'ar-SA',
       calendarName: 'islamic-umalqura',
       disable: {
         dates: '',
@@ -329,6 +352,7 @@ describe('Soho Datepicker Unit Tests', () => {
       comp.showLegend = false;
       comp.showMonthYearPicker = false;
       comp.legend = [{ name: 'Mondays', color: '#EFA880', dayOfWeek: [1] }];
+      comp.locale = 'ar-SA';
       comp.calendarName = 'islamic-umalqura';
       comp.disable = {
         dates: '',

@@ -161,6 +161,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   @Output() public selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() public unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() public rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() public contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;
   public column: SohoColumn;
@@ -186,6 +187,8 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('contextmenu', (...args) =>
+        this.ngZone.run(() => this.contextmenu.emit(args)));
     });
   }
 

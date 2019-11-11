@@ -1,5 +1,36 @@
 # What's New with Enterprise-NG
 
+## v6.2.0
+
+### 6.2.0 Fixes
+
+- `[Datagrid]` Made the last two options on exportToExcel optional. Note that passing in a third option is incorrect and will give you no headers in the exported file, so generally shouldnt be used. `TJM` ([#654](https://github.com/infor-design/enterprise-ng/pull/654))
+- `[Dropdown]` Added keydown output EventEmitter. `NBCP` ([#658](https://github.com/infor-design/enterprise-ng/pull/658))
+
+## v6.1.0
+
+### 6.1.0 Breaking Changes
+
+### 6.1.0 Features
+
+- `[General]` Adds 4.22 version of ids-enterprise. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Datepicker]` Added showToday setting. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Charts]` Added contextmenu event to all chart types. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Contextual Action Panel]` Added responsive break point settings. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Pager]` Added smallPageSizeSelector option to soho-standalone-pager. `PWP` ([#612](https://github.com/infor-design/enterprise-ng/pull/612))
+- `[Tabs]` Added tabs module component sample page. `EA` ([#612](https://github.com/infor-design/enterprise-ng/issues/596))
+- `[Modal]` Added responsive break point settings. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Wizard]` Added ability to show short labels on the wizard. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Tabs]` Added tabs module component sample page. `EA` ([#612](https://github.com/infor-design/enterprise-ng/issues/596))
+- `[DataGrid]` Added 'type' parameter to selected event to allow event handlers to determine the source action of the event. `BTHH` ([#646](https://github.com/infor-design/enterprise-ng/pull/646))
+- `[DataGrid]` Added 'setHeaderCheckboxType' method to datagrid to allow clients to control the status of the selection checkbox. `BTHH` ([#646](https://github.com/infor-design/enterprise-ng/pull/646))
+
+### 6.1.0 Chore & Maintenance
+
+- `[Locale]` - Added typings support for the parseDate dateFormat parameter when defined as an object. `MAF` ([#640](https://github.com/infor-design/enterprise-ng/issues/640))
+
+### 6.1.0 Fixes
+
 ## v6.0.0
 
 ### 6.0.0 Breaking Changes
@@ -8,6 +39,7 @@
 
 ### 6.0.0 Features
 
+- `[Calendar]` - Added eventToolTip, iconTooltip and callback for contextMenu. `VW` ([#614](https://github.com/infor-design/enterprise-ng/pull/614))
 - `[General]` Upgraded @angular/cli (to 8.0.x) and @angular/core (to 8.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
     - support for Node 10.9.0+
     - support for TypeScript 3.4.x
@@ -18,6 +50,7 @@
 ### 6.0.0 Chore & Maintenance
 
 - `[Datagrid]` - Added an example showing adding a new row on last cell and hitting enter and types for onKeyDown. `TJM` ([#536](https://github.com/infor-design/enterprise-ng/pull/536))
+- `[Datepicker]` - Added support for the locale option. `MAF` ([#631](https://github.com/infor-design/enterprise-ng/issues/631))
 - `[HomePage]` - Added `soho-homepage-sizer` directive to set the homepage's element height. `PWP` ([#571](https://github.com/infor-design/enterprise-ng/pull/571))
 - `[HomePage]` - Added `refresh` method types to the homepage API. `TJM` ([#2632](https://github.com/infor-design/enterprise/pull/2632))
 
